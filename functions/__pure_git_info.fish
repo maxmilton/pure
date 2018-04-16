@@ -1,11 +1,11 @@
 function __pure_git_info
-  if not set -q __pure_git_last_dirty_check_timestamp
-    set -g __pure_git_last_dirty_check_timestamp 0
+  if not set -q __pure_git_last_dirty_check
+    set -g __pure_git_last_dirty_check 0
   end
 
   set -l working_tree $argv[1]
   set -l current_timestamp (__pure_timestamp)
-  set -l time_since_last_dirty_check (math "$current_timestamp - $__pure_git_last_dirty_check_timestamp")
+  set -l time_since_last_dirty_check (math "$current_timestamp - $__pure_git_last_dirty_check")
 
   pushd $working_tree
   if test $time_since_last_dirty_check -gt 10
