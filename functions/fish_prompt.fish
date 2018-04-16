@@ -4,6 +4,7 @@ function fish_prompt
   set last_status $status
   set -l normal (set_color normal)
 
+  # skip first prompt line for near-instant initial load
   if test $__pure_new_session -eq 0
     echo ""
     echo -sn (set_color blue) (string replace $HOME "~" $PWD)
