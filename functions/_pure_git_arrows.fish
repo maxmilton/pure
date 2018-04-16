@@ -18,11 +18,11 @@ function _pure_git_arrows
 
   set -l arrows ""
 
-  if test $left -qt 0
+  if test $left -gt 0
     set arrows $arrows"⇡"
   end
 
-  if test $right -qt 0
+  if test $right -gt 0
     set arrows $arrows"⇣"
   end
 
