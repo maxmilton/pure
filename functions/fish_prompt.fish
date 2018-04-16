@@ -21,7 +21,7 @@ function fish_prompt
 
       set -l git_arrows (__pure_git_arrows $git_working_tree)
       if test -n "$git_arrows"
-        echo -sn (set_color cyan) $git_arrows
+        echo -n (set_color cyan) $git_arrows
       end
 
       if set -q __pure_async_git_fetch_running
