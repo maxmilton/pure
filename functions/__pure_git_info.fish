@@ -16,17 +16,15 @@ function __pure_git_info
   set -l git_branch_name (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
 
   # handle detached HEAD
-  if test -z "$git_branch_name"
+  if test -z $git_branch_name
     set git_branch_name (command git rev-parse --short HEAD ^ /dev/null)
   end
   popd
 
-  if test -n "$git_branch_name"
-    set -l git_dirty_mark
-
-    if set -q __pure_git_is_dirty
-      set git_dirty_mark "*"
-    end
-    echo -sn "$git_branch_name" $git_dirty_mark
+  set -l git_dirty_mark
+  if set -q __pure_git_is_dirty
+    set git_dirty_mark "*"
   end
+
+  echo -sn $git_branch_name $git_dirty_mark
 end

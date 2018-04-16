@@ -1,5 +1,5 @@
 function __pure_cmd_duration
-  if [ $CMD_DURATION ]
+  if set -q CMD_DURATION
     set full_seconds (math "$CMD_DURATION / 1000")
 
     if test $full_seconds -ge 5

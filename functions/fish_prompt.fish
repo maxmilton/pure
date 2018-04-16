@@ -15,24 +15,21 @@ function fish_prompt
 
     set -l git_working_tree (command git rev-parse --show-toplevel ^/dev/null)
     if test -n "$git_working_tree"
+      __pure_async_git_fetch $git_working_tree
       __pure_update_git_last_pwd $git_working_tree
-      set -l git_info (__pure_git_info $git_working_tree)
-      if test -n "$git_info"
-        echo -n (set_color 666) $git_info
-      end
+      echo -n (set_color 666) (__pure_git_info $git_working_tree)
 
       set -l git_arrows (__pure_git_arrows $git_working_tree)
       if test -n "$git_arrows"
         echo -sn (set_color cyan) $git_arrows
       end
 
-      __pure_async_git_fetch $git_working_tree
       if set -q __pure_async_git_fetch_running
         echo -n (set_color yellow --dim) "•"
       end
     end
 
-    # draw over async indicator on WINCH signal
+    # draw trailing characters on WINCH signal
     echo "          "
   end
 
