@@ -1,4 +1,4 @@
-function _pure_cmd_duration
+function __pure_cmd_duration
   if [ $CMD_DURATION ]
     set full_seconds (math "$CMD_DURATION / 1000")
 

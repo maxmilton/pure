@@ -1,4 +1,4 @@
-function _pure_unique_async_job
+function __pure_unique_async_job
   set -l job_unique_flag $argv[1]
   set -l callback_function $argv[2]
   set -l cmd $argv[3]

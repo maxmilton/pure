@@ -1,4 +1,4 @@
-function _pure_git_arrows
+function __pure_git_arrows
   set -l working_tree $argv[1]
 
   pushd $working_tree
