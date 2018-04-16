@@ -1,6 +1,6 @@
 # pure
 
-[![Slack Room][https://fisherman-wharf.herokuapp.com/badge.svg]](https://fisherman-wharf.herokuapp.com)
+[![Slack Room](https://fisherman-wharf.herokuapp.com/badge.svg)](https://fisherman-wharf.herokuapp.com)
 
 Yet another port of the [ZSH pure theme](https://github.com/sindresorhus/pure) to fish. It's not intended to be customizable, basically all values are hard-coded to my personal preference.
 
@@ -12,7 +12,7 @@ Based on [vkovtash/pure](https://github.com/vkovtash/pure) with some ideas from 
 
 With [fisherman](https://github.com/fisherman/fisherman):
 
-```
+```fish
 fisher MaxMilton/pure
 ```
 
