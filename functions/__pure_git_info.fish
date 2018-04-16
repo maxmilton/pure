@@ -10,7 +10,7 @@ function __pure_git_info
   pushd $working_tree
   if test $time_since_last_dirty_check -gt 10
     set -l cmd "command git status -unormal --porcelain --ignore-submodules 2>/dev/null | wc -l"
-    __pure_run_async "__pure_checking_dirty" __pure_dirty_callback $cmd
+    __pure_run_async "__pure_checking_dirty" __pure_git_dirty_callback $cmd
   end
 
   set -l git_branch_name (command git symbolic-ref HEAD 2>/dev/null | sed -e 's|^refs/heads/||')
