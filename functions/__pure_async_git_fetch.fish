@@ -1,12 +1,12 @@
 function __pure_async_git_fetch
-  if set -q __pure_git_async_fetch_running
+  if set -q __pure_fetching
     return 0
   end
 
   set -l working_tree $argv[1]
 
   pushd $working_tree
-  if test ! (command git rev-parse --abbrev-ref @'{u}' ^ /dev/null)
+  if test ! (command git rev-parse --abbrev-ref @'{u}' 2>/dev/null)
     popd
     return 0
   end
@@ -29,8 +29,10 @@ function __pure_async_git_fetch
     return 0
   end
 
-  set -l cmd "env GIT_TERMINAL_PROMPT=0 git -c gc.auto=0 fetch > /dev/null ^ /dev/null"
-  __pure_unique_async_job "__pure_async_git_fetch_running" __pure_update_prompt $cmd
+  __pure_run_async \
+    "__pure_fetching" \
+    __pure_update_prompt \
+    "env GIT_TERMINAL_PROMPT=0 git -c gc.auto=0 fetch > /dev/null 2>&1"
 
   popd
 end

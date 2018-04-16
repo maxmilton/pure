@@ -9,15 +9,15 @@ function __pure_git_info
 
   pushd $working_tree
   if test $time_since_last_dirty_check -gt 10
-    set -l cmd "command git status -unormal --porcelain --ignore-submodules ^/dev/null | wc -l"
-    __pure_unique_async_job "__pure_async_git_dirty_check_running" __pure_dirty_mark_completion $cmd
+    set -l cmd "command git status -unormal --porcelain --ignore-submodules 2>/dev/null | wc -l"
+    __pure_run_async "__pure_async_git_dirty_check_running" __pure_dirty_mark_completion $cmd
   end
 
-  set -l git_branch_name (command git symbolic-ref HEAD ^/dev/null | sed -e 's|^refs/heads/||')
+  set -l git_branch_name (command git symbolic-ref HEAD 2>/dev/null | sed -e 's|^refs/heads/||')
 
   # handle detached HEAD
   if test -z $git_branch_name
-    set git_branch_name (command git rev-parse --short HEAD ^ /dev/null)
+    set git_branch_name (command git rev-parse --short HEAD 2>/dev/null)
   end
   popd
 

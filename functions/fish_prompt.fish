@@ -13,7 +13,7 @@ function fish_prompt
       echo -n (set_color yellow) $cmd_duration
     end
 
-    set -l git_working_tree (command git rev-parse --show-toplevel ^/dev/null)
+    set -l git_working_tree (command git rev-parse --show-toplevel 2>/dev/null)
     if test -n "$git_working_tree"
       __pure_async_git_fetch $git_working_tree
       __pure_update_git_last_pwd $git_working_tree
@@ -24,7 +24,7 @@ function fish_prompt
         echo -n (set_color cyan) $git_arrows
       end
 
-      if set -q __pure_async_git_fetch_running
+      if set -q __pure_fetching
         echo -n (set_color yellow --dim) "•"
       end
     end
