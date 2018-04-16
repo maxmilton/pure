@@ -1,4 +1,4 @@
-function __pure_dirty_mark_completion
+function __pure_dirty_callback
   set -g __pure_git_last_dirty_check_timestamp (__pure_timestamp)
   set -l dirty_files_count $argv[1]
 

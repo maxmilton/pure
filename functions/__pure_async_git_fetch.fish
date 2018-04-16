@@ -29,10 +29,8 @@ function __pure_async_git_fetch
     return 0
   end
 
-  __pure_run_async \
-    "__pure_fetching" \
-    __pure_update_prompt \
-    "env GIT_TERMINAL_PROMPT=0 git -c gc.auto=0 fetch > /dev/null 2>&1"
+  set -l cmd "env GIT_TERMINAL_PROMPT=0 git -c gc.auto=0 fetch > /dev/null 2>&1"
+  __pure_run_async "__pure_fetching" __pure_update_prompt $cmd
 
   popd
 end
