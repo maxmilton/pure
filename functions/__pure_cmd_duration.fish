@@ -1,18 +1,18 @@
 function __pure_cmd_duration
   if test "$CMD_DURATION" -ge 5000
-    set milliseconds (math "$CMD_DURATION % 1000")
-    set seconds (math "$CMD_DURATION % 60")
-    set minutes (math "$CMD_DURATION / 60000 % 60")
-    set hours (math "$CMD_DURATION / 3600000 % 24")
+    set -l ms (math "$CMD_DURATION % 1000 / 10")
+    set -l s (math "$CMD_DURATION / 1000 % 60")
+    set -l m (math "$CMD_DURATION / 60000 % 60")
+    set -l h (math "$CMD_DURATION / 3600000 % 24")
 
-    if test $hours -gt 0
-      echo -sn $hours "h "
+    if test $h -gt 0
+      echo -sn $h "h "
     end
 
-    if test $minutes -gt 0
-      echo -sn $minutes "m "
+    if test $m -gt 0
+      echo -sn $m "m "
     end
 
-    echo -s $seconds.$milliseconds "s"
+    echo -s $s.$ms "s"
   end
 end
