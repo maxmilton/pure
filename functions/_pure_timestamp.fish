@@ -1,3 +1,3 @@
 function _pure_timestamp
-    command date +%s
+  command date +%s
 end

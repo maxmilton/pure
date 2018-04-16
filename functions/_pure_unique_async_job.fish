@@ -1,22 +1,22 @@
 function _pure_unique_async_job
-    set -l job_unique_flag $argv[1]
-    set -l callback_function $argv[2]
-    set -l cmd $argv[3]
+  set -l job_unique_flag $argv[1]
+  set -l callback_function $argv[2]
+  set -l cmd $argv[3]
 
-    if set -q $job_unique_flag
-        return 0
-    end
+  if set -q $job_unique_flag
+    return 0
+  end
 
-    set -g $job_unique_flag
-    set -l async_job_result _async_job_result_(random)
-    set -U $async_job_result "…"
-    fish -c "set -U $async_job_result (eval $cmd)" &
-    set -l pid (jobs -l -p)
+  set -g $job_unique_flag
+  set -l async_job_result _async_job_result_(random)
+  set -U $async_job_result "…"
+  fish -c "set -U $async_job_result (eval $cmd)" &
+  set -l pid (jobs -l -p)
 
-    function _async_job_$pid -v $async_job_result -V pid -V async_job_result -V callback_function -V job_unique_flag
-        set -e $job_unique_flag
-        eval $callback_function $$async_job_result
-        functions -e _async_job_$pid
-        set -e $async_job_result
-    end
+  function _async_job_$pid -v $async_job_result -V pid -V async_job_result -V callback_function -V job_unique_flag
+    set -e $job_unique_flag
+    eval $callback_function $$async_job_result
+    functions -e _async_job_$pid
+    set -e $async_job_result
+  end
 end
