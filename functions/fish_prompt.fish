@@ -10,7 +10,7 @@ function fish_prompt
 
     set -l cmd_duration (__pure_cmd_duration)
     if test -n "$cmd_duration"
-      echo -n (set_color yellow) " " $cmd_duration
+      echo -n (set_color yellow) $cmd_duration
     end
 
     set -l git_working_tree (command git rev-parse --show-toplevel ^/dev/null)
@@ -28,7 +28,7 @@ function fish_prompt
 
       __pure_async_git_fetch $git_working_tree
       if set -q __pure_async_git_fetch_running
-        echo -sn (set_color yellow) "•"
+        echo -n (set_color yellow --dim) "•"
       end
     end
 
