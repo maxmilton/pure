@@ -2,7 +2,6 @@ set -g __pure_new_session 1
 
 function fish_prompt
   set last_status $status
-  set -l normal (set_color normal)
 
   # skip first prompt line for near-instant initial load
   if test $__pure_new_session -eq 0
@@ -11,7 +10,7 @@ function fish_prompt
 
     set -l cmd_duration (__pure_cmd_duration)
     if test -n "$cmd_duration"
-      echo -n (set_color yellow) " " $cmd_duration $normal
+      echo -n (set_color yellow) " " $cmd_duration
     end
 
     set -l git_working_tree (command git rev-parse --show-toplevel ^/dev/null)
@@ -19,17 +18,17 @@ function fish_prompt
       __pure_update_git_last_pwd $git_working_tree
       set -l git_info (__pure_git_info $git_working_tree)
       if test -n "$git_info"
-        echo -n (set_color 666) $git_info $normal
+        echo -n (set_color 666) $git_info
       end
 
       set -l git_arrows (__pure_git_arrows $git_working_tree)
       if test -n "$git_arrows"
-        echo -n (set_color cyan) $git_arrows $normal
+        echo -sn (set_color cyan) $git_arrows
       end
 
       __pure_async_git_fetch $git_working_tree
       if set -q __pure_async_git_fetch_running
-        echo -sn (set_color yellow) "•" $normal
+        echo -sn (set_color yellow) "•"
       end
     end
 
@@ -42,7 +41,7 @@ function fish_prompt
     set prompt_color (set_color red)
   end
 
-  echo -sn $prompt_color "❯ " $normal
+  echo -sn $prompt_color "❯ " (set_color normal)
 
   set __pure_new_session 0
 end
