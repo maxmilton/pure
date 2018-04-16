@@ -1,4 +1,4 @@
-function __pure_async_git_fetch
+function __pure_git_fetch
   if set -q __pure_fetching
     return 0
   end

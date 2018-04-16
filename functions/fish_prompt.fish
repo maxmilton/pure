@@ -15,7 +15,7 @@ function fish_prompt
 
     set -l git_working_tree (command git rev-parse --show-toplevel 2>/dev/null)
     if test -n "$git_working_tree"
-      __pure_async_git_fetch $git_working_tree
+      __pure_git_fetch $git_working_tree
       __pure_git_update_workdir $git_working_tree
       echo -n (set_color 666) (__pure_git_info $git_working_tree)
 
