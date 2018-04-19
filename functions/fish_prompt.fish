@@ -10,7 +10,7 @@ function fish_prompt
     # root or ssh session
     set -l uid (id -u)
     if test \( $uid -eq 0 -o -n "$SUDO_USER" \) -o -n "$SSH_CONNECTION"
-      echo -sn (set_color brblack --dim) $USER "@" (command hostname) " "
+      echo -sn (set_color brblack) $USER "@" (command hostname) " "
     end
 
     echo -sn (set_color blue) (string replace $HOME "~" $PWD)
@@ -24,7 +24,7 @@ function fish_prompt
     if test -n "$git_working_tree"
       __pure_git_fetch $git_working_tree
       __pure_git_update_workdir $git_working_tree
-      echo -n (set_color brblack --dim) (__pure_git_info $git_working_tree)
+      echo -n (set_color brblack) (__pure_git_info $git_working_tree)
 
       set -l git_arrows (__pure_git_arrows $git_working_tree)
       if test -n "$git_arrows"
