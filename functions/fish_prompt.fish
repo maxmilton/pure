@@ -1,4 +1,3 @@
-set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 set -g __pure_new_session 1
 
 function fish_prompt
@@ -11,11 +10,7 @@ function fish_prompt
     # root or ssh session
     set -l uid (id -u)
     if test \( $uid -eq 0 -o -n "$SUDO_USER" \) -o -n "$SSH_CONNECTION"
-      echo -sn (set_color normal) $USER (set_color 666) "@" (command hostname | command cut -f 1 -d ".")
-    end
-
-    if set -q VIRTUAL_ENV
-      echo -sn (set_color 666) "(" (command basename "$VIRTUAL_ENV") ")"
+      echo -sn (set_color brblack --dim) $USER "@" (command hostname) " "
     end
 
     echo -sn (set_color blue) (string replace $HOME "~" $PWD)
@@ -29,7 +24,7 @@ function fish_prompt
     if test -n "$git_working_tree"
       __pure_git_fetch $git_working_tree
       __pure_git_update_workdir $git_working_tree
-      echo -n (set_color 666) (__pure_git_info $git_working_tree)
+      echo -n (set_color brblack --dim) (__pure_git_info $git_working_tree)
 
       set -l git_arrows (__pure_git_arrows $git_working_tree)
       if test -n "$git_arrows"
@@ -37,11 +32,11 @@ function fish_prompt
       end
 
       if set -q __pure_fetching
-        echo -n (set_color yellow --dim) "•"
+        echo -n (set_color yellow) "•"
       end
     end
 
-    # draw trailing characters on WINCH signal
+    # repaint trailing characters on WINCH signal
     echo "          "
   end
 
