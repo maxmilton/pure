@@ -1,3 +1,4 @@
+set -gx VIRTUAL_ENV_DISABLE_PROMPT 1
 set -g __pure_new_session 1
 
 function fish_prompt
@@ -6,6 +7,17 @@ function fish_prompt
   # skip first prompt line for near-instant initial load
   if test $__pure_new_session -eq 0
     echo ""
+
+    # root or ssh session
+    set -l uid (id -u)
+    if test \( $uid -eq 0 -o -n "$SUDO_USER" \) -o -n "$SSH_CONNECTION"
+      echo -sn (set_color normal) $USER (set_color 666) "@" (command hostname | command cut -f 1 -d ".")
+    end
+
+    if set -q VIRTUAL_ENV
+      echo -sn (set_color 666) "(" (command basename "$VIRTUAL_ENV") ")"
+    end
+
     echo -sn (set_color blue) (string replace $HOME "~" $PWD)
 
     set -l cmd_duration (__pure_cmd_duration)
