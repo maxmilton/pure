@@ -28,7 +28,7 @@ function fish_prompt
 
       set -l git_arrows (__pure_git_arrows $git_working_tree)
       if test -n "$git_arrows"
-        echo -n (set_color cyan) $git_arrows
+        echo -n (set_color brcyan) $git_arrows
       end
 
       if set -q __pure_fetching
@@ -36,7 +36,7 @@ function fish_prompt
       end
     end
 
-    # repaint trailing characters on WINCH signal
+    # draw over trailing characters
     echo "          "
   end
 
