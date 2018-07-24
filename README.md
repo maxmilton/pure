@@ -1,6 +1,7 @@
 <!-- markdownlint-disable first-line-h1 -->
 
-[![Build status](https://img.shields.io/travis/MaxMilton/pure.svg)](https://travis-ci.org/MaxMilton/pure)
+<!-- [![Build status](https://img.shields.io/travis/MaxMilton/pure.svg)](https://travis-ci.org/MaxMilton/pure) -->
+[![Build status](https://travis-ci.com/MaxMilton/pure.svg?branch=master)](https://travis-ci.com/MaxMilton/pure)
 [![Licence](https://img.shields.io/github/license/MaxMilton/pure.svg)](https://github.com/MaxMilton/pure/blob/master/LICENCE)
 
 # `pure` Fish Shell Theme
