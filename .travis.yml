@@ -1,0 +1,14 @@
+# https://docs.travis-ci.com/user/languages/c/
+
+language: c
+
+sudo: required
+
+install:
+  - sudo apt-get -y install fish
+  - curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+  - fish -c "fisher fishtape"
+
+script:
+  - fish -n **/*.fish # syntax check
+  - fish -c "fishtape test/*.test.fish"
