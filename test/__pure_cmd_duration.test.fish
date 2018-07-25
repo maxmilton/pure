@@ -1,5 +1,12 @@
 source $DIRNAME/../functions/__pure_cmd_duration.fish
 
+test "command duration is shown when over 5000ms"
+  '6.0s' = (
+    set CMD_DURATION 6000
+    __pure_cmd_duration
+  )
+end
+
 test "command duration is shown when 5000ms"
   '5.0s' = (
     set CMD_DURATION 5000
