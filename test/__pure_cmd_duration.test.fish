@@ -1,10 +1,22 @@
 source $DIRNAME/../functions/__pure_cmd_duration.fish
 
-# FIXME: Write tests -- ref: https://github.com/fisherman/fishtape
+test "command duration is shown when 5000ms"
+  '5.0s' = (
+    set CMD_DURATION 5000
+    __pure_cmd_duration
+  )
+end
 
-# test "set my_var default value"
-#   'default_value' = (
-#     __pure_set_default my_var 'default_value'
-#     echo $my_var
-#   )
-# end
+test "command duration is not shown when under 5000ms"
+  -z (
+    set CMD_DURATION 3000
+    __pure_cmd_duration
+  )
+end
+
+test "command duration is calculated correctly"
+  '6h 56m 7.89s' = (
+    set CMD_DURATION 1234567890
+    __pure_cmd_duration
+  )
+end
