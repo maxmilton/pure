@@ -27,7 +27,7 @@ fisher MaxMilton/pure
 
 ## Known issues
 
-- While the yellow "•" is shown, doing a remote git command may fail (e.g. `git fetch`, `git pull`, `git push`). This is because internally the theme is doing a `git fetch` and git is protecting you from doing multiple writes to your repo at once. Just wait a moment until the "•" disappears and try again.
+- While the yellow "•" is shown, remote git commands may fail (e.g. `git fetch`, `git pull`, `git push`). This is because internally the theme is doing a `git fetch` and git is protecting you from doing multiple writes to your repo at once. Just wait a moment until the "•" disappears and try again.
 - The theme is not very customizable. I've opted to hard-code much so perfect for me without any config overhead. If you want to customise something, I recommend forking this project and making it your own. Alternatively, [rafaelrinaldi/pure](https://github.com/rafaelrinaldi/pure) is similar but does provide many customisation options.
 
 ### OSX compatibility
