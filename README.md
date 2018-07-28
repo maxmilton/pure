@@ -17,12 +17,34 @@ Based on [vkovtash/pure](https://github.com/vkovtash/pure) with some ideas from 
 
 _NOTE: As it is now, this theme is not intended to be customizable; all values are hard-coded to sensible defaults._
 
-## Install
+## Usage
+
+### Install
 
 With [fisherman](https://github.com/fisherman/fisherman):
 
 ```fish
 fisher MaxMilton/pure
+```
+
+### Test
+
+Check for syntax issues:
+
+```fish
+fish -n **/*.fish
+```
+
+Install unit test dependency:
+
+```fish
+fisher fishtape
+```
+
+Run unit tests:
+
+```fish
+fish -c "fishtape test/*.test.fish"
 ```
 
 ## Known issues
