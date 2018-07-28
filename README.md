@@ -44,7 +44,7 @@ fisher fishtape
 Run unit tests:
 
 ```fish
-fish -c "fishtape test/*.test.fish"
+fishtape test/*.test.fish
 ```
 
 ## Known issues
