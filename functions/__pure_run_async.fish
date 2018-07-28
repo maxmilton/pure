@@ -14,6 +14,9 @@ function __pure_run_async
 
   set -l pid (jobs --last --pid)
 
+  # prevent blocking exit while job is running
+  disown $pid
+
   function _async_job_$pid -v $async_job_result -V pid -V async_job_result -V callback_function -V job_unique_flag
     set -e $job_unique_flag
     eval $callback_function $$async_job_result
