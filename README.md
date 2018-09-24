@@ -63,7 +63,7 @@ Out of the box this theme will not work because OSX uses a BSD version of the `s
     ```
 1. From a fish shell, add the new coreutils to your PATH (before the existing paths):
     ```sh
-    set --universal fish_user_paths /usr/local/opt/coreutils/libexec/gnubin $fish_user_paths
+    set --universal fish_user_paths (brew --prefix coreutils)/libexec/gnubin $fish_user_paths
     ```
 
 ## Licence
