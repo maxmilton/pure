@@ -21,10 +21,10 @@ _NOTE: As it is now, this theme is not intended to be customizable; all values a
 
 ### Install
 
-With [fisherman](https://github.com/fisherman/fisherman):
+With [Fisher](https://github.com/jorgebucaran/fisher):
 
 ```fish
-fisher MaxMilton/pure
+fisher add MaxMilton/pure
 ```
 
 ### Test
