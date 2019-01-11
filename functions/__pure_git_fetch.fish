@@ -17,7 +17,8 @@ function __pure_git_fetch
     set -l last_fetch_timestamp (command stat -c "%Y" .git/FETCH_HEAD)
     set -l current_timestamp (__pure_timestamp)
     set -l time_since_last_fetch (math "$current_timestamp - $last_fetch_timestamp")
-    if test $time_since_last_fetch -gt 600 # seconds = 10 minutes
+
+    if test $time_since_last_fetch -gt 600 # seconds
       set git_fetch_required 1
     end
   else
