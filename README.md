@@ -27,6 +27,8 @@ With [Fisher](https://github.com/jorgebucaran/fisher):
 fisher add MaxMilton/pure
 ```
 
+_NOTE: Requires fish version >= `3.0`._
+
 ### Test
 
 Check for syntax issues:
