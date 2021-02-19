@@ -1,5 +1,7 @@
 <!-- markdownlint-disable first-line-h1 -->
 
+> DEPRECATION NOTICE: My original goal with this prompt theme was the fastest performance possible while still looking pretty. This was achived to some degree but I've since moved on to the excellent [hydro theme](https://github.com/jorgebucaran/hydro). Check it out, it's even faster!
+
 <!-- [![Build status](https://img.shields.io/travis/MaxMilton/pure.svg)](https://travis-ci.org/MaxMilton/pure) -->
 [![Build status](https://travis-ci.com/MaxMilton/pure.svg?branch=master)](https://travis-ci.com/MaxMilton/pure)
 [![Licence](https://img.shields.io/github/license/MaxMilton/pure.svg)](https://github.com/MaxMilton/pure/blob/master/LICENCE)
